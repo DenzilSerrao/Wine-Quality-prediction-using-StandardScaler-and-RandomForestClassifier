@@ -67,7 +67,7 @@ wine-quality-prediction/
    python backend/app.py
    ```
 
-5. Open your browser and navigate to `http://localhost:5000`
+5. Run the `index.html` file in the frontend
 
 ## Dataset
 
