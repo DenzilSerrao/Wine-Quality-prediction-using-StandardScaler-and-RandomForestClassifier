@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Wine Quality Predictor</h1>
+            <p>Analyze your wine's chemical properties to predict its quality</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="form-container">
+                <h2>Enter Wine Properties</h2>
+                <form id="wine-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fixed_acidity">Fixed Acidity</label>
+                            <input type="number" id="fixed acidity" name="fixed acidity" step="0.1" required placeholder="7.0">
+                            <div class="tooltip">Measures the total concentration of non-volatile acids</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="volatile_acidity">Volatile Acidity</label>
+                            <input type="number" id="volatile acidity" name="volatile acidity" step="0.01" required placeholder="0.5">
+                            <div class="tooltip">Measures acetic acid concentration, can lead to vinegar taste</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="citric_acid">Citric Acid</label>
+                            <input type="number" id="citric acid" name="citric acid" step="0.01" required placeholder="0.3">
+                            <div class="tooltip">Provides freshness and flavor in small quantities</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="residual_sugar">Residual Sugar</label>
+                            <input type="number" id="residual sugar" name="residual sugar" step="0.1" required placeholder="2.0">
+                            <div class="tooltip">Amount of sugar remaining after fermentation</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="chlorides">Chlorides</label>
+                            <input type="number" id="chlorides" name="chlorides" step="0.001" required placeholder="0.08">
+                            <div class="tooltip">Amount of salt in the wine</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="free_sulfur_dioxide">Free Sulfur Dioxide</label>
+                            <input type="number" id="free sulfur dioxide" name="free sulfur dioxide" step="1" required placeholder="15">
+                            <div class="tooltip">Prevents microbial growth and oxidation</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="total_sulfur_dioxide">Total Sulfur Dioxide</label>
+                            <input type="number" id="total sulfur dioxide" name="total sulfur dioxide" step="1" required placeholder="30">
+                            <div class="tooltip">Sum of free and bound forms of SO2</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="density">Density</label>
+                            <input type="number" id="density" name="density" step="0.0001" required placeholder="0.9960">
+                            <div class="tooltip">Density of the wine, close to water (affects alcohol content)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pH">pH</label>
+                            <input type="number" id="pH" name="pH" step="0.01" required placeholder="3.2">
+                            <div class="tooltip">Describes how acidic or basic the wine is (0-14 scale)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sulphates">Sulphates</label>
+                            <input type="number" id="sulphates" name="sulphates" step="0.01" required placeholder="0.5">
+                            <div class="tooltip">Additive that contributes to SO2 levels, antimicrobial</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="alcohol">Alcohol</label>
+                            <input type="number" id="alcohol" name="alcohol" step="0.1" required placeholder="10.5">
+                            <div class="tooltip">Percentage of alcohol content in the wine</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" id="predict-btn">Predict Quality</button>
+                        <button type="button" id="sample-btn">Use Sample Data</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="results-container" id="results-section">
+                <h2>Wine Quality Prediction</h2>
+                <div id="loading" class="hidden">
+                    <div class="loader"></div>
+                    <p>Analyzing wine quality...</p>
+                </div>
+                
+                <div id="results" class="hidden">
+                    <div class="quality-meter">
+                        <h3>Predicted Quality Score</h3>
+                        <div class="meter-container">
+                            <div class="meter-value" id="quality-value">6</div>
+                            <div class="meter-scale">
+                                <span class="poor">Poor (3)</span>
+                                <span class="average">Average (5-6)</span>
+                                <span class="excellent">Excellent (8-9)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-details">
+                        <div class="quality-description" id="quality-description">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                        
+                        <div class="top-factors">
+                            <h3>Top Influencing Factors</h3>
+                            <ul id="factors-list">
+                                <!-- Filled by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="probability-chart">
+                        <h3>Probability Distribution</h3>
+                        <div class="chart-container" id="probability-chart">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="error-message" class="hidden">
+                    <p>There was an error processing your request. Please try again.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Wine Quality Prediction App &copy; 2025 | Using Machine Learning to predict wine quality</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
